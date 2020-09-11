@@ -21,7 +21,7 @@ except ImportError as err:
     print(err)
     
 parser = argparse.ArgumentParser(description="GUILLOTINE")
-parser.add_argument('-t','--target',help="example: python -t https://www.domain.com")
+parser.add_argument('-t','--target',help="example: python guillotine.py -t https://www.domain.com")
 parser = parser.parse_args()
 
 # Security headers
@@ -69,11 +69,11 @@ def main():
                 print("|_"+t.colored(" [x] ","red")+ i+" "*(35-len(i))+"_|")
             print("+------------------------------------------+")
         except:
-            print("connection cannot be established...\nusage: python -t https://www.domain.com")
-            print("       python -v -t https://www-.domain.com")
+            print("connection cannot be established...\nusage: python guillotine.py -t https://www.domain.com")
+       
     else:
-        print("you must set a target...\nusage: python -t https://www.domain.com")
-        print("       python -v -t https://www-.domain.com") 
+        print("you must set a target...\nusage: python guillotine.py -t https://www.domain.com")
+       
 
 
 if __name__=='__main__':
