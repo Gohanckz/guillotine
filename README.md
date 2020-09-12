@@ -1,6 +1,6 @@
-# guillotine
+# Guillotine
 
-Guillotine - Security Headers Finder HTTP
+Guillotine - HTTP Security Headers Finder
 
 
 
@@ -8,9 +8,9 @@ Guillotine - Security Headers Finder HTTP
 
 ![test](https://raw.githubusercontent.com/Gohanckz/Banners/master/bannerGuillotine.png)
 
-### Security Headers List HTTP
+### HTTP Security Headers List
 
-you can detect the following security headers http:
+you can detect the following HTTP security headers:
 
 * Strict-Transport-Security
 * X-XSS-Protection
@@ -32,15 +32,17 @@ you can detect the following security headers http:
 
 ### INSTALL
 
-    pip install -r requirements.txt
-
+```
+pip install -r requirements.txt
+```
 
 ### USAGE
 
 The use is very simple.
 
-    python guillotine.py https://www.domain.com
-
+```
+python guillotine.py -t https://www.domain.com
+```
 
 DEVELOPED| CONTACT | VERSION
 ----------|---------|-------
