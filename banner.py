@@ -5,7 +5,7 @@
 # ----            SECURITY HEADERS HTTP FINDER          ----|
 # ----            Gohanckz - W0lf_F4ng                  ----|
 # ----            Contact : gohanckz@lesand.cl          ----|
-# ----            Contact : ms@wolffang.org             ----|
+# ----            Contact : ms@w0lff4ng.org             ----|
 # ----            Version : 1.0                         ----|
 #------------------------------------------------------------
 
