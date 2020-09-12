@@ -45,4 +45,4 @@ The use is very simple.
 DEVELOPED| CONTACT | VERSION
 ----------|---------|-------
 Gohanckz |gohanckz@lesand.cl | 1.0
-W0lf F4ng|ms@wolffang.org| 1.0
+W0lf_F4ng|ms@w0lff4ng.org| 1.0
