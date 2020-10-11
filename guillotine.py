@@ -15,7 +15,8 @@ try:
     import requests
     import argparse
     from banner import banner
-    import termcolor as t
+    from colorama import Fore, init
+    init()
 except ImportError as err:
     print("Some libraries are missing:")
     print(err)
@@ -61,12 +62,12 @@ def main():
             print("|          ENABLED SECURITY HEADERS        |")
             print("+------------------------------------------+")
             for i in enabled_headers:
-                print("|_"+t.colored(" [+] ","green")+ i+" "*(35-len(i))+"_|")
+                print("|_"+ Fore.GREEN + " [+] " + Fore.RESET + i+" "*(35-len(i))+"_|")
             print("+------------------------------------------+")
             print("|          MISSING SECURITY HEADERS        |")
             print("+------------------------------------------+")
             for i in missing_headers:
-                print("|_"+t.colored(" [x] ","red")+ i+" "*(35-len(i))+"_|")
+                print("|_"+ Fore.RED + " [x] " + Fore.RESET + i+" "*(35-len(i))+"_|")
             print("+------------------------------------------+")
         except:
             print("connection cannot be established...\nusage: python guillotine.py -t https://www.domain.com")
