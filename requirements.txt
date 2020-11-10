@@ -2,5 +2,3 @@ requests
 argparse
 termcolor
 prettytable
-textwrap3
-textwrap
