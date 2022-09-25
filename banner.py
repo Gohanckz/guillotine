@@ -3,10 +3,9 @@
 
 #------------------------------------------------------------
 # ----            SECURITY HEADERS HTTP FINDER          ----|
-# ----            Gohanckz - W0lf_F4ng                  ----|
-# ----            Contact : gohanckz@lesand.cl          ----|
-# ----            Contact : ms@w0lff4ng.org             ----|
-# ----            Version : 1.0                         ----|
+# ----            Gohanckz                              ----|
+# ----            Contact : igonzalez@lesand.cl         ----|
+# ----            Version : 2.0                         ----|
 #------------------------------------------------------------
 
 
@@ -21,8 +20,9 @@ def banner():
     print("  :_______________________________i.     ")
     print("  |  GUILLOTINE                    |     ")
     print("  |      By Gohanckz               |     ")
-    print("  !___________W0lf_F4ng____________!     ")
+    print("  !________________________________!     ")
 
 
 if __name__=='__main__':
     banner()
+
