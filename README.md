@@ -31,6 +31,20 @@ You can detect the following HTTP security headers:
 
 ### INSTALL
 
+1. Clone the repository
+
+```
+git clone https://github.com/Gohanckz/guillotine.git
+```
+
+2. Move in to repository
+
+```
+cd guillotine
+```
+
+3. Install the requirements.
+
 ```
 pip install -r requirements.txt
 ```
