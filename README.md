@@ -46,7 +46,7 @@ cd guillotine
 3. Install the requirements.
 
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### USAGE
