@@ -96,7 +96,7 @@ def main():
     try:
         print("\n[*] Analyzing target : ",parser.target)
         print("[*] Security headers enabled :", count)
-        print("[*] Missing Security Headers :",len(missing_headers))
+        print("[*] Missing Security Headers :",count_m)
     except:
         print("[!] Syntax Error.")
         print("[+] Usage: python3 guillotine.py -t http://examplse.site")
