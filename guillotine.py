@@ -78,6 +78,11 @@ try:
     for i in security_headers_site:
         if i != " ":
             count += 1
+            
+    count_m = 0
+    for j in missing_headers:
+        if j != " ":
+            count_m +=1
 
     s_table = PrettyTable()
     s_table.add_column("Enabled Security Header",security_headers_site)
