@@ -13,6 +13,7 @@ try:
     from prettytable import PrettyTable
     import requests
     import argparse
+    from urllib3.exceptions import InsecureRequestWarning
 except ImportError as err:
     print("Some libraries are missing:")
     print(err)
@@ -23,7 +24,8 @@ parser.add_argument("-v","--verbose",action="store_true",help="Show full respons
 parser = parser.parse_args()
 
 try:
-    url = requests.get(url=parser.target)    
+    requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
+    url = requests.get(url=parser.target, verify=False)    
 
 
     security_headers = [
