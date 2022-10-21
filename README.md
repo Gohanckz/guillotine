@@ -68,6 +68,6 @@ python guillotine.py -t https://www.domain.com -v
 
 DEVELOPED| CONTACT | VERSION
 ----------|---------|-------
-Gohanckz |igonzalez@pwnsec.cl | 2.0
+Ryuzaki94 |igonzalez@pwnsec.cl | 2.0
 
 
