@@ -6,7 +6,7 @@ Guillotine - HTTP Security Headers Finder
 
 ##### Finds the security headers that are not enabled in a specific domain.
 
-![test](https://raw.githubusercontent.com/Gohanckz/Banners/master/guillotinebanner.png)
+
 
 
 ### HTTP Security Headers List
