@@ -99,7 +99,7 @@ def main():
         print("[*] Missing Security Headers :",count_m)
     except:
         print("[!] Syntax Error.")
-        print("[+] Usage: python3 guillotine.py -t http://examplse.site")
+        print("[+] Usage: python3 guillotine.py -t http://example.site")
 def target():
     try:      
         print(s_table)
