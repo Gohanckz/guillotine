@@ -19,7 +19,7 @@ def banner():
     print("   /     !______|       L\J'    `.       ")
     print("  :_______________________________i.     ")
     print("  |  GUILLOTINE                    |     ")
-    print("  |      By 0xr94                  |     ")
+    print("  |      By Gohanckz               |     ")
     print("  !________________________________!     ")
 
 
