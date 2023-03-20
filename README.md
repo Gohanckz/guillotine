@@ -68,6 +68,6 @@ python guillotine.py -t https://www.domain.com -v
 
 DEVELOPED| CONTACT | VERSION
 ----------|---------|-------
-0xr94 |0xr94@proton.me | 2.0
+Gohanckz |Gohanckz@gmail.com | 2.0
 
 
