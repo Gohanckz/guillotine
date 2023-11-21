@@ -18,6 +18,39 @@ except ImportError as err:
     print("Some libraries are missing:")
     print(err)
 
+security_headers = [
+    "Strict-Transport-Security",
+    "X-Frame-Options",
+    "X-Content-Type-Options",
+    "Content-Security-Policy",
+    "X-Permitted-Cross-Domain-Policies",
+    "Referrer-Policy",
+    "Clear-Site-Data",
+    "Cross-Origin-Embedder-Policy",
+    "Cross-Origin-Opener-Policy",
+    "Cross-Origin-Resource-Policy",
+    "Cache-Control"
+]
+
+recommended_versions = {
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+    "Content-Security-Policy": "default-src 'self';",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-XSS-Protection": "1; mode=block",
+    "Referrer-Policy": "no-referrer-when-downgrade",
+    "Feature-Policy": "vibrate 'none'; geolocation 'none';",
+    "Permissions-Policy": "geolocation=(), microphone=()",
+    "Expect-CT": "max-age=86400, enforce"
+}
+
+def check_security_header_versions(headers):
+    outdated_headers = {}
+    for header, value in headers.items():
+        if header in recommended_versions and value != recommended_versions[header]:
+            outdated_headers[header] = value
+    return outdated_headers
+
 parser = argparse.ArgumentParser(description="Finder Security Headers")
 parser.add_argument("-t","--target",help="Show http security headers enabled and missing")
 parser.add_argument("-v","--verbose",action="store_true",help="Show full response")
@@ -25,22 +58,7 @@ parser = parser.parse_args()
 
 try:
     requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
-    url = requests.get(url=parser.target, verify=False)    
-
-
-    security_headers = [
-        "Strict-Transport-Security",
-        "X-Frame-Options",
-        "X-Content-Type-Options",
-        "Content-Security-Policy",
-        "X-Permitted-Cross-Domain-Policies",
-        "Referrer-Policy",
-        "Clear-Site-Data",
-        "Cross-Origin-Embedder-Policy",
-        "Cross-Origin-Opener-Policy",
-        "Cross-Origin-Resource-Policy",
-        "Cache-Control"
-    ]
+    url = requests.get(url=parser.target, verify=False)
 
     info_headers = []
     headers_site = []
@@ -110,8 +128,14 @@ def verbose():
         print(table)
     except:
         pass
+
 if __name__ == '__main__':
     main()
+    outdated_headers = check_security_header_versions(headers)
+    if outdated_headers:
+        print("\n[!] The following headers are outdated:")
+        for header, value in outdated_headers.items():
+            print(f"  - {header}: Current value: {value}, Recommended: {recommended_versions[header]}")
     if parser.verbose:
         verbose()
     elif parser.target:
