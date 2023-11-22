@@ -80,7 +80,7 @@ python guillotine.py -t https://www.domain.com --ntlm [<domain>\\]<username>:<pa
 
 DEVELOPED| CONTACT | VERSION
 ----------|---------|-------
-Gohanckz | Gohanckz@gmail.com | 2.0
-ignaciocorball | ignaciocorball@gmail.com | 2.1
-BSolarV | bastian.solar.v@gmail.com | 2.2
+[Gohanckz](https://github.com/Gohanckz) | Gohanckz@gmail.com | 2.0
+[ignaciocorball](https://github.com/ignaciocorball) | ignaciocorball@gmail.com | 2.1
+[BSolarV](https://github.com/BSolarV) | bastian.solar.v@gmail.com | 2.2
 
