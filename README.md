@@ -54,20 +54,33 @@ pip3 install -r requirements.txt
 The use is very simple.
 
 1. Show http security headers enabled and missing
-
 ```
 python guillotine.py -t https://www.domain.com
 ```
 
-2. Show full response
+2. Show and compare headers with recommended versions.
+```
+python guillotine.py -t https://www.domain.com --compare-versions
+```
 
+3. Show full response
 ```
 python guillotine.py -t https://www.domain.com -v
 ```
 
+4. Use BASIC Authenticacion to retrieve the site
+```
+python guillotine.py -t https://www.domain.com --basic <username>:<password>
+```
+
+5. Use NTLM Authenticacion to retrieve the site
+```
+python guillotine.py -t https://www.domain.com --ntlm [<domain>\\]<username>:<password>
+```
 
 DEVELOPED| CONTACT | VERSION
 ----------|---------|-------
-Gohanckz |Gohanckz@gmail.com | 2.0
-
+Gohanckz | Gohanckz@gmail.com | 2.0
+ignaciocorball | ignaciocorball@gmail.com | 2.1
+BSolarV | bastian.solar.v@gmail.com | 2.2
 
