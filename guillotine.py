@@ -156,6 +156,7 @@ def main():
     except:
         print("[!] Syntax Error.")
         print("[+] Usage: python3 guillotine.py -t http://example.site")
+
 def target():
     try:      
         print(s_table)
@@ -169,14 +170,18 @@ def verbose():
         pass
 
 def versionComparison(headers, parser):
-    outdated_headers = check_security_header_versions(headers, parser)
-    if outdated_headers:
-        print("\n[!] The following headers are outdated:")
-        for header, value in outdated_headers.items():
-            CapHeader = "-".join( [ word.capitalize() for word in header.split("-") ] )
-            print(f"    - {CapHeader}:")
-            print(f"        Current value: {value}")
-            print(f"        Recommended:   {recommended_versions[header.lower()]}")
+    try:
+        outdated_headers = check_security_header_versions(headers, parser)
+        if outdated_headers:
+            print("\n[!] The following headers might be outdated:")
+            for header, value in outdated_headers.items():
+                CapHeader = "-".join( [ word.capitalize() for word in header.split("-") ] )
+                print(f"    - {CapHeader}:")
+                print(f"        Current value: {value}")
+                print(f"        Recommended:   {recommended_versions[header.lower()]}")
+        print()
+    except:
+        pass
 
 def warnings():
     try:
@@ -185,6 +190,7 @@ def warnings():
             print(header)
             for headerWarning in headerWarnings:
                 print("    "+headerWarning)
+        print()
     except:
         pass
 
