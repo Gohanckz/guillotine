@@ -6,7 +6,7 @@
 #----             FINDER HTTP SECURITY HEADERS          ----|
 #----             Gohanckz                              ----|
 #----             Contact : gohanckz@gmail.com          ----|
-#----             Version : 2.2                         ----|
+#----             Version : 2.2.1                       ----|
 #------------------------------------------------------------
 try:
     from banner import banner
@@ -32,6 +32,7 @@ security_headers = [
     "Cross-Origin-Opener-Policy".lower(),
     "Cross-Origin-Resource-Policy".lower(),
     "Cache-Control".lower(),
+    "Permissions-Policy".lower(),
 ]
 
 recommended_versions = {
@@ -48,7 +49,7 @@ recommended_versions = {
     "Cache-Control".lower(): "no-cache, no-store, must-revalidate",
     "X-XSS-Protection".lower(): "1; mode=block",
     "Feature-Policy".lower(): "vibrate 'none'; geolocation 'none';",
-    "Permissions-Policy".lower(): "geolocation=(), microphone=()",
+    "Permissions-Policy".lower(): "geolocation=()",
     "Expect-CT".lower(): "max-age=86400, enforce"
 }
 
