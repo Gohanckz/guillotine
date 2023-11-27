@@ -189,13 +189,19 @@ def warnings():
         pass
 
 if __name__ == '__main__':
+
     main()
+
+    if parser.target:
+        target()
+
     if( parser.compare_versions or parser.verbose ):
         versionComparison(headers, parser)
-    if parser.verbose:
-        verbose()
-    elif parser.target:
-        target()
+
     if( parser.warnings or parser.verbose ):
         warnings()
+
+    if parser.verbose:
+        verbose()
+
     print()
