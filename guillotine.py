@@ -53,6 +53,12 @@ recommended_versions = {
     "Expect-CT".lower(): "max-age=86400, enforce"
 }
 
+# header.lower() : lambda valueOfHeader : function that returns a list of strings to display as warning, empty list if it doesn't has any warnings.
+warnings_headers = {
+    "Content-Security-Policy".lower() : lambda value: [ f"{dangreousValue} present in CSP header." for dangreousValue in ["unsafe-inline", "unsafe-eval"] if dangreousValue in value.lower() ],
+    "Access-Control-Allow-Origin".lower() : lambda value: [ f"Wildcard ('*') detected in CORS policy." ] if "*" in value else [],
+}
+
 def check_security_header_versions(headers, parser):
     outdated_headers = {}
     for header, value in headers.items():
@@ -70,6 +76,7 @@ parser.add_argument("--compare-versions",action="store_true",help="Show the reco
 parser.add_argument("--ntlm", help="Use NTLM Authentication. Format: [<domain>\\\\]<username>:<password>")
 parser.add_argument("--basic", help="Use BASIC Authentication. Format: <username>:<password>")
 parser.add_argument("-v","--verbose",action="store_true",help="Show full response")
+parser.add_argument("-w","--warnings",action="store_true",help="Show full response")
 parser = parser.parse_args()
 
 try:
@@ -90,10 +97,16 @@ try:
     security_headers_site = []
     missing_headers = []
 
+    warnings_found = []
+
     headers = dict(url.headers)
 
     for i in headers:
         headers_site.append(i)
+        if i.lower() in warnings_headers:
+            warning = warnings_headers[i.lower()](headers[i])
+            if warning:
+                warnings_found.append((i,warning))
 
     for i in headers:
         info_headers.append(headers[i])
@@ -153,6 +166,15 @@ def verbose():
         print(table)
     except:
         pass
+def warnings():
+    try:
+        print("[+] Warnings:", len(warnings_found))
+        for header,headerWarnings in warnings_found:
+            print(header)
+            for headerWarning in headerWarnings:
+                print("    "+headerWarning)
+    except:
+        pass
 
 if __name__ == '__main__':
     main()
@@ -169,3 +191,6 @@ if __name__ == '__main__':
         verbose()
     elif parser.target:
         target()
+    if parser.warnings:
+        warnings()
+    print()
