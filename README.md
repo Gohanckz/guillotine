@@ -24,6 +24,7 @@ You can detect the following HTTP security headers:
 - [x] Cross-Origin-Opener-Policy
 - [x] Cross-Origin-Resource-Policy
 - [x] Cache-Control
+- [x] Permissions-Policy
 
 **note:** you can add security headers by directly modifying the code.
 
