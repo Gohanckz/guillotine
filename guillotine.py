@@ -161,14 +161,26 @@ def target():
         print(s_table)
     except:
         pass
+
 def verbose():
     try:
         print(table)
     except:
         pass
+
+def versionComparison(headers, parser):
+    outdated_headers = check_security_header_versions(headers, parser)
+    if outdated_headers:
+        print("\n[!] The following headers are outdated:")
+        for header, value in outdated_headers.items():
+            CapHeader = "-".join( [ word.capitalize() for word in header.split("-") ] )
+            print(f"    - {CapHeader}:")
+            print(f"        Current value: {value}")
+            print(f"        Recommended:   {recommended_versions[header.lower()]}")
+
 def warnings():
     try:
-        print("[+] Warnings:", len(warnings_found))
+        print("[!] Warnings:", len(warnings_found))
         for header,headerWarnings in warnings_found:
             print(header)
             for headerWarning in headerWarnings:
@@ -179,18 +191,11 @@ def warnings():
 if __name__ == '__main__':
     main()
     if( parser.compare_versions or parser.verbose ):
-        outdated_headers = check_security_header_versions(headers, parser)
-        if outdated_headers:
-            print("\n[!] The following headers are outdated:")
-            for header, value in outdated_headers.items():
-                CapHeader = "-".join( [ word.capitalize() for word in header.split("-") ] )
-                print(f"    - {CapHeader}:")
-                print(f"        Current value: {value}")
-                print(f"        Recommended:   {recommended_versions[header.lower()]}")
+        versionComparison(headers, parser)
     if parser.verbose:
         verbose()
     elif parser.target:
         target()
-    if parser.warnings:
+    if( parser.warnings or parser.verbose ):
         warnings()
     print()
