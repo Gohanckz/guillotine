@@ -63,17 +63,22 @@ python guillotine.py -t https://www.domain.com
 python guillotine.py -t https://www.domain.com --compare-versions
 ```
 
-3. Show full response
+3. Show warnings on important headers.
+```
+python guillotine.py -t https://www.domain.com --warnings
+```
+
+4. Show full response
 ```
 python guillotine.py -t https://www.domain.com -v
 ```
 
-4. Use BASIC Authenticacion to retrieve the site
+5. Use BASIC Authenticacion to retrieve the site
 ```
 python guillotine.py -t https://www.domain.com --basic <username>:<password>
 ```
 
-5. Use NTLM Authenticacion to retrieve the site
+6. Use NTLM Authenticacion to retrieve the site
 ```
 python guillotine.py -t https://www.domain.com --ntlm [<domain>\\]<username>:<password>
 ```
@@ -83,4 +88,5 @@ DEVELOPED| CONTACT | VERSION
 [Gohanckz](https://github.com/Gohanckz) | Gohanckz@gmail.com | 2.0
 [ignaciocorball](https://github.com/ignaciocorball) | ignaciocorball@gmail.com | 2.1
 [BSolarV](https://github.com/BSolarV) | bastian.solar.v@gmail.com | 2.2
+[BSolarV](https://github.com/BSolarV) | bastian.solar.v@gmail.com | 2.2.1
 
