@@ -77,6 +77,7 @@ parser.add_argument("--ntlm", help="Use NTLM Authentication. Format: [<domain>\\
 parser.add_argument("--basic", help="Use BASIC Authentication. Format: <username>:<password>")
 parser.add_argument("-v","--verbose",action="store_true",help="Show full response")
 parser.add_argument("-w","--warnings",action="store_true",help="Show full response")
+parser.add_argument("-H","--headers",help="Include custom headers in the request. Format: <header>:<value>|<header2>:<value2>| ...")
 parser = parser.parse_args()
 
 try:
@@ -90,7 +91,15 @@ try:
         ntlmAuth = parser.ntlm.split(":")
         auth = HttpNtlmAuth(ntlmAuth[0], "".join(ntlmAuth[1:]))
 
-    url = requests.get(url=parser.target, verify=False, auth=auth)
+    headers = {}
+    if( parser.headers ):
+        headersToInclude = parser.headers.split("|")
+        for oneHeaderToInclude in headersToInclude:
+            firstColon = oneHeaderToInclude.find(":")
+            header = oneHeaderToInclude[:firstColon].strip()
+            value = oneHeaderToInclude[firstColon + 1:].strip()
+            headers[header] = value
+    url = requests.get(url=parser.target, verify=False, auth=auth, headers=headers)
 
     info_headers = []
     headers_site = []
@@ -98,6 +107,8 @@ try:
     missing_headers = []
 
     warnings_found = []
+
+    status_code = url.status_code
 
     headers = dict(url.headers)
 
@@ -144,13 +155,16 @@ try:
     s_table.add_column("Enabled Security Header",security_headers_site)
     s_table.add_column("Missing Security Header",missing_headers)
     s_table.align="l"
-except:
+
+except Exception as error:
+    print(f"Error: {error}")
     print("[!] time out, unable to connect to site.")
 
 def main():
     banner()
     try:
-        print("\n[*] Analyzing target : ",parser.target)
+        print()
+        print(f"[*] Analyzing target : {parser.target} (Status code: {status_code})")
         print("[*] Security headers enabled :", count)
         print("[*] Missing Security Headers :",count_m)
     except:

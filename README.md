@@ -67,19 +67,27 @@ python guillotine.py -t https://www.domain.com --compare-versions
 3. Show warnings on important headers.
 ```
 python guillotine.py -t https://www.domain.com --warnings
+python guillotine.py -t https://www.domain.com -w
 ```
 
 4. Show full response
 ```
+python guillotine.py -t https://www.domain.com --verbose
 python guillotine.py -t https://www.domain.com -v
 ```
 
-5. Use BASIC Authenticacion to retrieve the site
+5. Use custom headers.
+```
+python guillotine.py -t https://www.domain.com --headers "<header>:<value>|<header2>:<value2>|..."
+python guillotine.py -t https://www.domain.com -H "<header>:<value>|<header2>:<value2>|..."
+```
+
+6. Use BASIC Authenticacion to retrieve the site
 ```
 python guillotine.py -t https://www.domain.com --basic <username>:<password>
 ```
 
-6. Use NTLM Authenticacion to retrieve the site
+7. Use NTLM Authenticacion to retrieve the site
 ```
 python guillotine.py -t https://www.domain.com --ntlm [<domain>\\]<username>:<password>
 ```
