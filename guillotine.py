@@ -58,7 +58,7 @@ recommended_versions = {
 warnings_headers = {
     "Content-Security-Policy".lower() : lambda value: [ f"{dangreousValue} present in CSP header." for dangreousValue in ["unsafe-inline", "unsafe-eval"] if dangreousValue in value.lower() ],
     "Access-Control-Allow-Origin".lower() : lambda value: [ f"Wildcard ('*') detected in CORS policy." ] if "*" in value else [],
-    "Strict-Transport-Security".lower() : lambda value: [ f"'max-age' is less than a year or not set." ] if (match := re.search(r'max-age=(\d+)', value)) and int(match.group(1)) < 31536000 else [],
+    "Strict-Transport-Security".lower() : lambda value: [ f"'max-age' is less than a year or is not set." ] if not ((match := re.search(r'max-age=(\d+)', value)) and int(match.group(1)) >= 31536000) else [],
 }
 
 def check_security_header_versions(headers, parser):
