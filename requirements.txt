@@ -1,3 +1,4 @@
 requests
 argparse
 prettytable
+requests_ntlm

@@ -24,6 +24,7 @@ You can detect the following HTTP security headers:
 - [x] Cross-Origin-Opener-Policy
 - [x] Cross-Origin-Resource-Policy
 - [x] Cache-Control
+- [x] Permissions-Policy
 
 **note:** you can add security headers by directly modifying the code.
 
@@ -63,24 +64,37 @@ python guillotine.py -t https://www.domain.com
 python guillotine.py -t https://www.domain.com --compare-versions
 ```
 
-3. Show full response
+3. Show warnings on important headers.
 ```
+python guillotine.py -t https://www.domain.com --warnings
+python guillotine.py -t https://www.domain.com -w
+```
+
+4. Show full response
+```
+python guillotine.py -t https://www.domain.com --verbose
 python guillotine.py -t https://www.domain.com -v
 ```
 
-4. Use BASIC Authenticacion to retrieve the site
+5. Use custom headers.
+```
+python guillotine.py -t https://www.domain.com --headers "<header>:<value>|<header2>:<value2>|..."
+python guillotine.py -t https://www.domain.com -H "<header>:<value>|<header2>:<value2>|..."
+```
+
+6. Use BASIC Authenticacion to retrieve the site
 ```
 python guillotine.py -t https://www.domain.com --basic <username>:<password>
 ```
 
-5. Use NTLM Authenticacion to retrieve the site
+7. Use NTLM Authenticacion to retrieve the site
 ```
 python guillotine.py -t https://www.domain.com --ntlm [<domain>\\]<username>:<password>
 ```
 
-DEVELOPED| CONTACT | VERSION
+DEVELOPED | CONTACT | VERSION
 ----------|---------|-------
 [Gohanckz](https://github.com/Gohanckz) | Gohanckz@gmail.com | 2.0
 [ignaciocorball](https://github.com/ignaciocorball) | ignaciocorball@gmail.com | 2.1
-[BSolarV](https://github.com/BSolarV) | bastian.solar.v@gmail.com | 2.2
+[BSolarV](https://github.com/BSolarV) | bastian.solar.v@gmail.com | 2.2.3
 
