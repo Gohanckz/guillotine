@@ -92,7 +92,7 @@ python guillotine.py -t https://www.domain.com --basic <username>:<password>
 python guillotine.py -t https://www.domain.com --ntlm [<domain>\\]<username>:<password>
 ```
 
-DEVELOPED| CONTACT | VERSION
+DEVELOPED | CONTACT | VERSION
 ----------|---------|-------
 [Gohanckz](https://github.com/Gohanckz) | Gohanckz@gmail.com | 2.0
 [ignaciocorball](https://github.com/ignaciocorball) | ignaciocorball@gmail.com | 2.1
