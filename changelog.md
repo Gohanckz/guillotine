@@ -27,9 +27,10 @@ All notable changes to this project will be documented in this file.
 ## [2.2.1] - 2023-11-30
  
 ### Added
-- Warning on some security headers.
+- Warning on some security headers.  
     > `python guillotine.py -t https://www.domain.com --warnings`
-
+- Added verification for "Permissions-Policy" header.  
+  
 ### Changed
 
 - Verbose mode now enables all of the optional information.
