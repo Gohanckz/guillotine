@@ -2,6 +2,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.2.3] - 2023-11-30
+ 
+### Added
+- Added warning for STS header
+
+### Changed
+
+### Fixed
+
 ## [2.2.2] - 2023-11-30
  
 ### Added

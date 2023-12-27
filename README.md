@@ -96,5 +96,5 @@ DEVELOPED | CONTACT | VERSION
 ----------|---------|-------
 [Gohanckz](https://github.com/Gohanckz) | Gohanckz@gmail.com | 2.0
 [ignaciocorball](https://github.com/ignaciocorball) | ignaciocorball@gmail.com | 2.1
-[BSolarV](https://github.com/BSolarV) | bastian.solar.v@gmail.com | 2.2.2
+[BSolarV](https://github.com/BSolarV) | bastian.solar.v@gmail.com | 2.2.3
 
